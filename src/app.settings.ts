@@ -8,7 +8,7 @@ import * as cookieParser from 'cookie-parser';
 export const addSettingsApp = (app: INestApplication) => {
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
   app.enableCors({
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     credentials: true
   });
   app.use(cookieParser());

@@ -8,7 +8,6 @@ export class RefreshTokenAuthCommand {
     public req: Request,
   ) {}
 }
-
 @CommandHandler(RefreshTokenAuthCommand)
 export class RefreshTokenAuthUseCase implements ICommandHandler<RefreshTokenAuthCommand> {
   constructor(
