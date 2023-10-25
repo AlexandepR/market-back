@@ -23,6 +23,19 @@ export class UsersRepository {
       throw new Error("Failed to create user");
     }
   }
+  async addExpiredRefreshToken(id: string, refreshToken: string): Promise<boolean> {
+    try {
+      const user = await this.UserModel.findOneAndUpdate(
+        { _id: id },
+        { $push: { expRefreshToken: refreshToken } },
+        { new: true }
+      );
+
+      return !!user;
+    } catch (error) {
+      throw new Error("Failed to add expired refresh token");
+    }
+  }
   async findUserByEmail(email: string): Promise<UserDocument> {
     return this.UserModel
       .findOne({ email });
