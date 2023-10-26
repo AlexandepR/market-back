@@ -15,7 +15,7 @@ export class RefreshTokenAuthUseCase implements ICommandHandler<RefreshTokenAuth
     // protected securitySqlRepository: SecuritySqlRepository,
   ) {
   }
-  
+
   async execute(command: RefreshTokenAuthCommand) {
     const refreshToken = command.req.cookies.refreshToken;
     const user = command.req.requestUser
